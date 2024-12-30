@@ -1,7 +1,5 @@
 {% use "form_div_layout.html.twig" %}
 
-{{- block('form_rows') -}}
-{%- endblock repeated_row -%}
 
 {%- block form_row -%}
     {%- set widget_attr = {} -%}
@@ -17,9 +15,10 @@
     </div>
 {%- endblock form_row -%}
 
+
 {%- block form_errors -%}
     {%- if errors|length > 0 -%}
-        <ul class="form_errors">
+        <ul class="form-errors">
             {%- for error in errors -%}
                 <li>{{ error.message }}</li>
             {%- endfor -%}
