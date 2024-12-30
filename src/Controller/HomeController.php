@@ -4,77 +4,52 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
     public function index(): Response
     {
+
         $questions = [
             [
-                'title' => 'Je suis une question',
-                'content' => 'lorem ipsum dolor sit amet consectetur adipiscing elit pariatur',
+                'id' => '1',
+                'title' => 'Je suis une super question',
+                'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, adipisci. Libero aperiam dolores excepturi, quidem maxime accusantium inventore. Illum, odio dolores! Ullam omnis veritatis laborum, animi inventore nostrum optio voluptates.',
                 'rating' => 20,
                 'author' => [
-                    'name' => 'John Doe',
-                    'avatar' => 'https://randomuser.me/api/portraits/lego/6.jpg',
+                    'name' => 'Jean Dupont',
+                    'avatar' => 'https://randomuser.me/api/portraits/men/52.jpg'
                 ],
-                'nbrOfResponses' => 15,
+                'nbrOfResponse' => 15
             ],
             [
-                'title' => 'Je suis une question',
-                'content' => 'lorem ipsum dolor sit amet consectetur adipiscing elit pariatur',
-                'rating' => 15,
-                'author' => [
-                    'name' => 'John Doe',
-                    'avatar' => 'https://randomuser.me/api/portraits/lego/6.jpg',
-                ],
-                'nbrOfResponses' => 2,
-            ],
-            [
-                'title' => 'Je suis une question',
-                'content' => 'lorem ipsum dolor sit amet consectetur adipiscing elit pariatur',
+                'id' => '2',
+                'title' => 'Je suis une super question',
+                'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, adipisci. Libero aperiam dolores excepturi, quidem maxime accusantium inventore. Illum, odio dolores! Ullam omnis veritatis laborum, animi inventore nostrum optio voluptates.',
                 'rating' => 0,
                 'author' => [
-                    'name' => 'John Doe',
-                    'avatar' => 'https://randomuser.me/api/portraits/lego/6.jpg',
+                    'name' => 'Julie Dupont',
+                    'avatar' => 'https://randomuser.me/api/portraits/women/44.jpg'
                 ],
-                'nbrOfResponses' => 90,
+                'nbrOfResponse' => 15
             ],
             [
-                'title' => 'Je suis une question',
-                'content' => 'lorem ipsum dolor sit amet consectetur adipiscing elit pariatur',
-                'rating' => 45,
+                'id' => '3',
+                'title' => 'Je suis une super question',
+                'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, adipisci. Libero aperiam dolores excepturi, quidem maxime accusantium inventore. Illum, odio dolores! Ullam omnis veritatis laborum, animi inventore nostrum optio voluptates.',
+                'rating' => -15,
                 'author' => [
-                    'name' => 'John Doe',
-                    'avatar' => 'https://randomuser.me/api/portraits/lego/6.jpg',
+                    'name' => 'Jean Dupont',
+                    'avatar' => 'https://randomuser.me/api/portraits/men/46.jpg'
                 ],
-                'nbrOfResponses' => 197,
-            ],
-            [
-                'title' => 'Je suis une question',
-                'content' => 'lorem ipsum dolor sit amet consectetur adipiscing elit pariatur',
-                'rating' => 4,
-                'author' => [
-                    'name' => 'John Doe',
-                    'avatar' => 'https://randomuser.me/api/portraits/lego/6.jpg',
-                ],
-                'nbrOfResponses' => 5,
-            ],
-            [
-                'title' => 'Je suis une question',
-                'content' => 'lorem ipsum dolor sit amet consectetur adipiscing elit pariatur',
-                'rating' => 23,
-                'author' => [
-                    'name' => 'John Doe',
-                    'avatar' => 'https://randomuser.me/api/portraits/lego/6.jpg',
-                ],
-                'nbrOfResponses' => 7,
+                'nbrOfResponse' => 15
             ],
         ];
+
         return $this->render('home/index.html.twig', [
-            'questions' => $questions,
+            'questions' => $questions
         ]);
     }
 }

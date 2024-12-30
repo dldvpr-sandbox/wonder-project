@@ -127,6 +127,10 @@ a {
     margin-right: 5px;
 }
 
+.mr-10 {
+    margin-right: 10px;
+}
+
 .m-10 {
     margin: 10px;
 }
@@ -159,6 +163,10 @@ a {
 
 .p-20 {
     padding: 20px;
+}
+
+.pb-20 {
+    padding-bottom:20px;
 }
 
 .py-20 {
@@ -215,6 +223,12 @@ a {
     border-radius: var(--border-radius);
     background-color: white;
     box-shadow: var(--box-shadow);
+}
+
+.block-shadow:hover {
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow 0.4s;
 }
 
 .form-row {
@@ -308,4 +322,40 @@ footer {
 .active {
     border-left: 5px solid var(--primary);
     background-color: var(--primary-light);
+}
+
+small {
+    font-size: var(--font-size-small);
+    font-family: var(--font-family);
+}
+
+.avatar {
+    width: 25px;
+    border-radius: 50%;
+}
+
+.clickable {
+    color:var(--primary);
+    font-weight: var(--font-weight-semi-bold);
+    cursor: pointer;
+}
+
+.text-small {
+    font-size: var(--font-size-small);
+}
+
+/* question */
+
+.question-content {
+    border-bottom: 1px solid var(--gray-light);
+    max-width: 800px;
+    word-wrap: break-word;
+}
+
+.rating-up {
+    color: var(--primary);
+}
+
+.rating-down {
+    color: var(--warning);
 }
