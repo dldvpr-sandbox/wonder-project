@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Question;
 use App\Form\QuestionType;
+use App\Repository\QuestionRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,16 +14,27 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/question', name: 'question_')]
 class QuestionController extends AbstractController
 {
+    public function __construct(public readonly EntityManagerInterface $entityManager,
+                                private readonly QuestionRepository $questionRepository) {
+
+    }
+
     #[Route('/ask', name: 'form')]
     public function index(Request $request): Response
     {
-
-        $formQuestion = $this->createForm(QuestionType::class);
-
+        $question = new Question();
+        $formQuestion = $this->createForm(QuestionType::class, $question);
         $formQuestion->handleRequest($request);
-
         if ($formQuestion->isSubmitted() && $formQuestion->isValid()) {
-            dd($formQuestion->getData());
+            $question
+                ->setNbrOfResponse(0)
+                ->setCreatedAt(new \DateTimeImmutable())
+                ->setRating(0);
+            $this->entityManager->persist($question);
+            $this->entityManager->flush();
+            $this->addFlash('success', 'Votre question à été ajouté.');
+
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('question/index.html.twig', [
@@ -29,19 +43,11 @@ class QuestionController extends AbstractController
     }
 
     #[Route('/{id}', name: 'show')]
-    public function show(Request $request, string $id): Response
+    public function show(Question $question): Response
     {
+//                'name' => 'Jean Dupont',
+//                'avatar' => 'https://randomuser.me/api/portraits/men/52.jpg'
 
-        $question =   [
-            'title' => 'Je suis une super question',
-            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, adipisci. Libero aperiam dolores excepturi, quidem maxime accusantium inventore. Illum, odio dolores! Ullam omnis veritatis laborum, animi inventore nostrum optio voluptates.',
-            'rating' => 20,
-            'author' => [
-                'name' => 'Jean Dupont',
-                'avatar' => 'https://randomuser.me/api/portraits/men/52.jpg'
-            ],
-            'nbrOfResponse' => 15
-        ];
 
         return $this->render('question/show.html.twig', [
             'question' => $question,
