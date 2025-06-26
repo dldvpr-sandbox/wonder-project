@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b7c749e90d660fa35d3300cccd22a9f",
+    "content-hash": "af1656988e071172c8795eac3859b5ac",
     "packages": [
         {
             "name": "composer/semver",
@@ -5559,6 +5559,76 @@
             "time": "2024-07-26T07:36:36+00:00"
         },
         {
+            "name": "symfony/rate-limiter",
+            "version": "v7.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/rate-limiter.git",
+                "reference": "f1df8f0a40aa60cbd3c546ceb03408ab8f641528"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/rate-limiter/zipball/f1df8f0a40aa60cbd3c546ceb03408ab8f641528",
+                "reference": "f1df8f0a40aa60cbd3c546ceb03408ab8f641528",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "symfony/options-resolver": "^6.4|^7.0"
+            },
+            "require-dev": {
+                "psr/cache": "^1.0|^2.0|^3.0",
+                "symfony/lock": "^6.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\RateLimiter\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wouter de Jong",
+                    "email": "wouter@wouterj.nl"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides a Token Bucket implementation to rate limit input and output in your application",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "limiter",
+                "rate-limiter"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/rate-limiter/tree/v7.1.8"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-11-09T09:16:45+00:00"
+        },
+        {
             "name": "symfony/routing",
             "version": "v7.1.4",
             "source": {
@@ -5720,16 +5790,16 @@
         },
         {
             "name": "symfony/security-bundle",
-            "version": "v7.1.4",
+            "version": "v7.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-bundle.git",
-                "reference": "5e10107856ff64d477c61fed7bcbb8a16125ea01"
+                "reference": "4012dbc0884fc7cbf555615a5aaa16f7c0d3f222"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/5e10107856ff64d477c61fed7bcbb8a16125ea01",
-                "reference": "5e10107856ff64d477c61fed7bcbb8a16125ea01",
+                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/4012dbc0884fc7cbf555615a5aaa16f7c0d3f222",
+                "reference": "4012dbc0884fc7cbf555615a5aaa16f7c0d3f222",
                 "shasum": ""
             },
             "require": {
@@ -5806,7 +5876,7 @@
             "description": "Provides a tight integration of the Security component into the Symfony full-stack framework",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/security-bundle/tree/v7.1.4"
+                "source": "https://github.com/symfony/security-bundle/tree/v7.1.11"
             },
             "funding": [
                 {
@@ -5822,7 +5892,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-20T11:38:55+00:00"
+            "time": "2024-12-31T17:57:35+00:00"
         },
         {
             "name": "symfony/security-core",
