@@ -349,7 +349,12 @@ small {
 
 .avatar {
     width: 25px;
-    border-radius: 50%;
+    border-radius: 25%;
+}
+
+.avatar-lg {
+    width: 40px;
+    border-radius: 25%;
 }
 
 .clickable {
@@ -388,4 +393,10 @@ small {
 
 .flash-success {
     background-color: var(--success);
+}
+
+.question-text,
+.question-response-text {
+    line-height: var(--line-height-hight);
+    white-space: pre-wrap;
 }
