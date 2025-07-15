@@ -7,10 +7,11 @@ use App\Entity\Question;
 use App\Form\CommentType;
 use App\Form\QuestionType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class QuestionController extends AbstractController
@@ -70,7 +71,7 @@ class QuestionController extends AbstractController
 
     #[Route('/question/rating/{id}/{score}', name: 'question_rating')]
     #[IsGranted('ROLE_USER')]
-    public function ratingQuestion(Request $request, Question $question, int $score, EntityManagerInterface $em)
+    public function ratingQuestion(Request $request, Question $question, int $score, EntityManagerInterface $em): RedirectResponse
     {
         $question->setRating($question->getRating() + $score);
         $em->flush();
@@ -80,7 +81,7 @@ class QuestionController extends AbstractController
 
     #[Route('/comment/rating/{id}/{score}', name: 'comment_rating')]
     #[IsGranted('ROLE_USER')]
-    public function ratingComment(Request $request, Comment $comment, int $score, EntityManagerInterface $em)
+    public function ratingComment(Request $request, Comment $comment, int $score, EntityManagerInterface $em): RedirectResponse
     {
         $comment->setRating($comment->getRating() + $score);
         $em->flush();
