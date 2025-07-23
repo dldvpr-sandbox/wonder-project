@@ -152,6 +152,10 @@ a {
     margin-right: 20px;
 }
 
+.mb-10 {
+    margin-bottom: 10px;
+}
+
 .mb-20 {
     margin-bottom: 20px;
 }
@@ -399,4 +403,11 @@ small {
 .question-response-text {
     line-height: var(--line-height-hight);
     white-space: pre-wrap;
+}
+
+/* user profile */
+
+.profile-picture {
+    border-radius: var(--border-radius);
+    width: 150px;
 }
