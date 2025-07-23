@@ -10,13 +10,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     public function __construct(
-        private QuestionRepository $questionRepository,
+        private readonly QuestionRepository $questionRepository,
     )
     {}
     #[Route('/', name: 'home')]
     public function index(): Response
     {
-        $questions = $this->questionRepository->findAll();
+        $questions = $this->questionRepository->findBy([], ['createdAt' => 'DESC']);
 
         return $this->render('home/index.html.twig', [
             'questions' => $questions
