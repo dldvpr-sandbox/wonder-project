@@ -7,6 +7,7 @@ use App\Entity\Comment;
 use App\Entity\Question;
 use App\Form\CommentType;
 use App\Form\QuestionType;
+use App\Repository\QuestionRepository;
 use App\Repository\VoteRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
@@ -46,8 +47,10 @@ class QuestionController extends AbstractController
     }
 
     #[Route('/question/{id}', name: 'question_show')]
-    public function show(Request $request, Question $question, EntityManagerInterface $em): Response
+    public function show(Request $request, QuestionRepository $questionRepository, EntityManagerInterface $em, int $id): Response
     {
+        $question = $questionRepository->getQuestionWithCommentsAndAuthors($id);
+
         $options = [
             'question' => $question
         ];
