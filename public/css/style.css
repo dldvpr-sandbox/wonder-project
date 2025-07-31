@@ -82,6 +82,10 @@ a {
     display: flex;
 }
 
+.flex-row {
+    flex-flow: row;
+}
+
 .flex-row-nowrap {
     flex-flow: row nowrap;
 }
@@ -397,6 +401,10 @@ small {
 
 .flash-success {
     background-color: var(--success);
+}
+
+.flash-error {
+    background-color: var(--warning);
 }
 
 .question-text,
