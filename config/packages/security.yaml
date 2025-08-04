@@ -24,6 +24,9 @@ security:
                 secret: '%kernel.secret%'
             logout:
                 path: logout
+            logging_throttling:
+                max_attempt: 3
+                interval: '5 minutes'
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
